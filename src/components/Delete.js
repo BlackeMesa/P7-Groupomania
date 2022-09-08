@@ -6,7 +6,6 @@ import { deletePost } from "../actions/post.action";
 const Delete = ({ postId, img }) => {
   const dispatch = useDispatch();
 const storage = getStorage();
-console.log(img);
   const handleDelete = async () => {
     if (img) {
     const imageRef = ref(storage, `images/${img}`);

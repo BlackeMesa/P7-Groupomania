@@ -6,7 +6,7 @@ import CreatePost from "./components/CreatePost";
 import Post from "./components/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "./actions/post.action";
-
+import logo from "./assets/icon-left-font.svg"
 const App = () => {
   const [user, setUser] = useState(null);
   
@@ -30,8 +30,10 @@ const App = () => {
 
   return (
     <div>
+      <div className="logo">
+        <img src={logo} alt="logo" />
+      </div>
       <div className="app-header">
-        
         {user && (
           <div className="user-infos">
             <span>{user?.displayName[0]}</span>
@@ -42,18 +44,9 @@ const App = () => {
           </div>
         )}
 
-        {user ? (
-          <CreatePost uid={user.uid} displayName={user.displayName} />
-        ) : (
-          <ConnectModal />
-        )}
+        {user ? <CreatePost uid={user.uid} displayName={user.displayName} /> : <ConnectModal />}
       </div>
-      <div className="posts-container">
-        {posts.length > 0 &&
-          posts
-            .sort((a, b) => b.date - a.date)
-            .map((post) => <Post post={post} key={post.id} user={user} />)}
-      </div>
+      <div className="posts-container">{posts.length > 0 && posts.sort((a, b) => b.date - a.date).map((post) => <Post post={post} key={post.id} user={user} />)}</div>
     </div>
   );
 };

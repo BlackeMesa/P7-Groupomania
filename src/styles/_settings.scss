@@ -25,6 +25,13 @@ body {
   background: $black2;
   color: $white;
 }
+.logo {
+      height: 200px;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    background-color: white;
+}
 
 button,
 input[type="submit"] {
