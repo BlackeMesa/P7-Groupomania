@@ -52,5 +52,6 @@
 ### Créer un admin (facultatif)
 
 - Créer un utilisateur nommé Admin depuis l'UI de l'Application
-- Récupérer son UID dans Authentication 
+- Récupérer son UID dans Authentication du projet Firebase
 - Le copier puis coller dans REACT_APP_FIREBASE_ADMIN_UID du fichier .env
+- Vous aurez accès a des fonctionnalités de suppression et modification pour tout les posts
