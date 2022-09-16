@@ -10,7 +10,7 @@ const Post = ({ post, user }) => {
   const [editMess, setEditMess] = useState(null);
   const [admin, setAdmin] = useState(false);
   const dispatch = useDispatch();
-console.log(user);
+
   const dateFormater = (date) => {
     let days = Math.floor((new Date() - new Date(date)) / (1000 * 3600 * 24));
 

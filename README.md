@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+### Lancement de l'application 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Cloner le repo
+- Initialiser le projet (npm i)
 
-## Available Scripts
 
-In the project directory, you can run:
+### Créer un projet Firebase
 
-### `npm start`
+- Créer un compte firestore
+- Créer un nouveau projet 
+- Aller dans les paramétres du projet et créer une nouvelle app Web
+- Firebase affichera les données personnelles de votre projet (apiKey: "wdfwfq",
+  authDomain: "qfsqsf",
+  projectId: "qfsqf",
+  storageBucket: "qfsqf",
+  messagingSenderId: "qfsqf",
+  appId: "qsfqf")
+- Les remplacer dans le fichier .env.exemple tout en supprimant le .exemple du fichier
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Bravo, vous avez réussi la première configuration 🚀
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Configurer le projet Firebase pour accueillir les données
 
-### `npm test`
+- Dans l'onglet Créer de votre projet Firebase :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- créer un nouveau Firestore Database 
+- Aller dans règles et changer (allow read, write: if false;) par (allow read, write: if true;)
 
-### `npm run build`
+- créer un nouveau Authentication
+- méthode d'authentification email/password
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Créer un nouveau Storage 
+- Ajouter un dossier images
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Importer les données de la BDD
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- récupérer votre API Key du projet
+- Aller dans Paramètres du projet - Comptes de service
+- Générer une nouvelle clé privé
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Installer node firestore import-export
+- Executer sur vote machine npm install -g node-firestore-import-export
+- Executer firestore-import -a cheminversvotrenouvellecléprivé -b cheminverslefichierdataBackup.json
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+🥳🎉 Félicitations votre application est fin prête 🎉🥳
 
-## Learn More
+ Executer npm start pour lancer l'application.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Créer un admin (facultatif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Créer un utilisateur nommé Admin depuis l'UI de l'Application
+- Récupérer son UID dans Authentication 
+- Le copier puis coller dans REACT_APP_FIREBASE_ADMIN_UID du fichier .env
