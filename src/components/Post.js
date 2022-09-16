@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { editPost, getPosts } from "../actions/post.action";
+import { editPost } from "../actions/post.action";
 import CommentPost from "./CommentPost";
 import Delete from "./Delete";
 import LikePost from "./LikePost";
@@ -10,7 +10,7 @@ const Post = ({ post, user }) => {
   const [editMess, setEditMess] = useState(null);
   const [admin, setAdmin] = useState(false);
   const dispatch = useDispatch();
-
+console.log(user);
   const dateFormater = (date) => {
     let days = Math.floor((new Date() - new Date(date)) / (1000 * 3600 * 24));
 
@@ -36,7 +36,9 @@ const Post = ({ post, user }) => {
     }
   };
     const checkUserAdmin = () => {
-      if (post.authorId === user?.uid || adminUid == user?.uid) {
+
+
+      if ( user && (  post.authorId === user?.uid || adminUid == user?.uid)) {
         setAdmin(true);
       } else {
         setAdmin(false);
@@ -44,7 +46,7 @@ const Post = ({ post, user }) => {
     };
   useEffect(() => {
     checkUserAdmin();
-  }, []);
+  }, [user]);
   
   let adminUid = process.env.REACT_APP_FIREBASE_ADMIN_UID;
 

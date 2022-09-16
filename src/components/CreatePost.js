@@ -4,7 +4,7 @@ import { addPost, getPosts } from "../actions/post.action";
 import { v4 } from "uuid";
 import { storage } from "../utils/firebase.config";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { useEffect } from "react";
+
 const CreatePost = ({ uid, displayName }) => {
   const message = useRef();
   const dispatch = useDispatch();

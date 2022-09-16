@@ -1,8 +1,8 @@
 
-import { arrayRemove, arrayUnion, doc, updateDoc } from 'firebase/firestore';
+
 import React from 'react';
 import { useDispatch } from "react-redux";
-import { db } from '../utils/firebase.config';
+
 import {  likeButton } from "../actions/post.action";
 
 const LikePost = ({post, user}) => {

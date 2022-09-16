@@ -24,7 +24,8 @@ const App = () => {
 
   const handleLogout = async () => {
     await signOut(auth);
-    location.reload();
+    setUser(null);
+    
   };
   
 
