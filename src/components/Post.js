@@ -35,19 +35,18 @@ const Post = ({ post, user }) => {
       );
     }
   };
-    const checkUserAdmin = () => {
+  const checkUserAdmin = () => {
+    if (user && (post.authorId === user?.uid || adminUid == user?.uid)) {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
+    }
+  };
 
-
-      if ( user && (  post.authorId === user?.uid || adminUid == user?.uid)) {
-        setAdmin(true);
-      } else {
-        setAdmin(false);
-      }
-    };
   useEffect(() => {
     checkUserAdmin();
   }, [user]);
-  
+
   let adminUid = process.env.REACT_APP_FIREBASE_ADMIN_UID;
 
   return (

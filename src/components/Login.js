@@ -11,11 +11,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail.current.value,
-        loginPassword.current.value
-      );
+      const user = await signInWithEmailAndPassword(auth, loginEmail.current.value, loginPassword.current.value);
       console.log(user);
     } catch (error) {
       console.log(error.message);
@@ -29,17 +25,10 @@ const Login = () => {
       <div className="login">
         <h3>Se connecter</h3>
         <form className="form-login" onSubmit={(e) => handleLogin(e)}>
-          <input type="email" placeholder="Email" required ref={loginEmail} />
-          <input
-            type="password"
-            placeholder="Mot de passe"
-            required
-            ref={loginPassword}
-          />
+          <input type="email" placeholder="Email" aria-label="Email" required ref={loginEmail} />
+          <input type="password" placeholder="Mot de passe" required aria-label="Password" ref={loginPassword} />
           <input type="submit" value="Se connecter" />
-          <span>
-            {error && "Le mail ou le mot de passe ne correspondent pas"}
-          </span>
+          <span>{error && "Le mail ou le mot de passe ne correspondent pas"}</span>
         </form>
       </div>
     </div>

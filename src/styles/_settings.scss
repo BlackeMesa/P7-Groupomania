@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-$color1: rgb(211, 27, 57);
-$black1: rgb(28, 28, 28);
-$black2: rgb(49, 49, 49);
+$color1: #FD2D01
+;
+$black1: rgb(33, 32, 32);
+$black2: #4E5166;
 $black3: rgb(70, 70, 70);
 $white: rgb(207, 207, 207);
 $grey: rgb(95, 95, 95);
@@ -30,7 +31,15 @@ body {
     display: flex;
     justify-content: center;
     margin: 0px;
-    background-color: white;
+    background-color: #FFD7D7;
+     margin-bottom: 150px;
+}
+.logo img {
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+  top: 100px;
+ 
 }
 
 button,

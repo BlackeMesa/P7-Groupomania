@@ -5,15 +5,18 @@ import { deletePost } from "../actions/post.action";
 
 const Delete = ({ postId, img }) => {
   const dispatch = useDispatch();
-const storage = getStorage();
+  const storage = getStorage();
   const handleDelete = async () => {
     if (img) {
-    const imageRef = ref(storage, `images/${img}`);
-   await deleteObject(imageRef).then(()=> {
-console.log("Image supprimé");
-    }).catch((error) => console.log(error))}
-    
-     dispatch(deletePost(postId));
+      const imageRef = ref(storage, `images/${img}`);
+      await deleteObject(imageRef)
+        .then(() => {
+          console.log("Image supprimé");
+        })
+        .catch((error) => console.log(error));
+    }
+
+    dispatch(deletePost(postId));
   };
 
   return (

@@ -43,17 +43,11 @@ const CommentPost = ({ post }) => {
   return (
     <div className="comment-container">
       <h5 className="comment-title">Commentaires</h5>
-      {post.comments &&
-        post.comments.map((comment, index) => (
-          <CommentCard key={index} comment={comment} />
-        ))}
+      {post.comments && post.comments.map((comment, index) => <CommentCard key={index} comment={comment} />)}
 
       {user ? (
         <form onSubmit={(e) => handleComment(e)}>
-          <textarea
-            placeholder="Envoyer un commentaire"
-            ref={answerContent}
-          ></textarea>
+          <textarea placeholder="Envoyer un commentaire" ref={answerContent}></textarea>
           <input type="submit" value="Envoyer" />
         </form>
       ) : (

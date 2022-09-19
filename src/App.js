@@ -6,16 +6,15 @@ import CreatePost from "./components/CreatePost";
 import Post from "./components/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "./actions/post.action";
-import logo from "./assets/icon-left-font.svg"
+import logo from "./assets/icon-left-font.svg";
 const App = () => {
   const [user, setUser] = useState(null);
-  
+
   const posts = useSelector((state) => state.postReducer);
   const dispatch = useDispatch();
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
-    
   });
 
   useEffect(() => {
@@ -25,9 +24,7 @@ const App = () => {
   const handleLogout = async () => {
     await signOut(auth);
     setUser(null);
-    
   };
-  
 
   return (
     <div>
